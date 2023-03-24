@@ -1,0 +1,143 @@
+.landing{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://staticg.sportskeeda.com/editor/2022/01/64c61-16430246229653-1920.jpg");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.landing2{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://prod.assets.earlygamecdn.com/images/marvel2023.png?transform=banner_webp");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.landing3{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://oyster.ignimgs.com/mediawiki/apis.ign.com/the-dark-knight/7/78/Image.jpg");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.landing4{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://sm.ign.com/ign_pk/gallery/t/the-spider/the-spider-man-movies-in-chronological-order_bvpb.jpg");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.landing4{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://pbs.twimg.com/media/FmNCCj2WIAAOeCp.jpg");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.landing5{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://c4.wallpaperflare.com/wallpaper/726/46/535/movies-hollywood-movies-wallpaper-preview.jpg");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
+.landing6{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://w0.peakpx.com/wallpaper/270/433/HD-wallpaper-mortal-kombat-mortal-kombat-movie-mortal-kombat-movies-2021-movies.jpg");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+.landing7{
+    display: flex;
+  
+    flex:1;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_weVd1NKtPk57luOtvr6iqGUJ0v_oPzjPbw&usqp=CAU");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+
