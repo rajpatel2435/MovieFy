@@ -7,10 +7,25 @@ const fileSchema = new mongoose.Schema({
     type: String,
     required: [true, "Uploaded file must have a name"],
   },
+  filename:{
+    type:String
+  },
   file:{
     data:Buffer,
     contentType:String
+  },  
+  genre:{
+    type:String
   },
+  description:{
+    type:String
+  },
+  isFavourite: {
+    type: Boolean,
+    default: false
+},
+favUserId:[],
+  
   userId: String
 });
 

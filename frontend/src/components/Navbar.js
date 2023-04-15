@@ -24,31 +24,35 @@ const navitems = [
     },
     {
         text: 'Movies',
-        path: '/Signup'
+        path: '/showMovies'
     },
     {
-        text: 'Shows',
-        path: '/Login'
+        text: 'Comedy',
+        path: '/Comedy'
     },
     {
-      text:'Favourite',
-      path:'/FileUpload'
+      text:'Search',
+      path:'/searchMovies'
     }
 ]
 
 const AdmNavitems = [
-  {
-      text: 'Home',
-      path: '/'
-  },
+
  
   {
-    text:'AddMovies',
+    text:'+Movies',
     path:'/FileUpload'
   },
   {
-    text:'All Users',
+    text:'Users',
     path:'/users'
+  },
+  {
+    text:'Movies',
+    path:'/showFiles'
+  },  {
+    text:'update',
+    path:'/updateMovies'
   }
 ]
 
@@ -104,7 +108,7 @@ function Navbar() {
 {auth ?
   
 // 
-JSON.parse(auth).email=="admin@admin.com"?
+JSON.parse(auth).email==="admin@admin.com"?
 <>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -162,7 +166,7 @@ JSON.parse(auth).email=="admin@admin.com"?
               textDecoration: 'none',
             }}
           >
-           HealthiFy
+           MovieFy
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' },marginLeft:'310px' }}>
             {AdmNavitems.map((page) => (
@@ -187,7 +191,7 @@ JSON.parse(auth).email=="admin@admin.com"?
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="k" src="/static/images/avatar/3.jpg" />
+                <Avatar alt={JSON.parse(auth).name} src="/static/images/avatar/3.jpg" />
               </IconButton>
             </Tooltip>
          
@@ -277,7 +281,9 @@ JSON.parse(auth).email=="admin@admin.com"?
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="k" src="/static/images/avatar/3.jpg" />
+               <Link href={'/UserSelfInfo'} style={{ textDecoration: 'none', color: '#fff', fontSize: '32px' }}>
+                <Avatar alt="k" />
+                </Link>
               </IconButton>
             </Tooltip>
          

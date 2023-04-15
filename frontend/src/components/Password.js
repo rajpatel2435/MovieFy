@@ -2,27 +2,23 @@ import React, { useState, useEffect } from 'react'
 import { Button, Container, Grid, TextField, Typography } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 
-const Forgot = () => {
+const Password = () => {
 
-    const updatePassword = async () => {
-        let data = await fetch('http://127.0.0.1:6969/password-reset', {
-            method: "POST",
-            body: JSON.stringify({ email}),
-            headers: {
-                "Content-type": "application/json",
-            }
-        })
-        let result = await data.json()
-        console.log("RRRRRRRRRRRRRRRRRRRRRRRRRR"+result)
-        console.log("forgetttttttttttt"+JSON.stringify(result._id))
-
- if(JSON.stringify(result._id)){
-            alert('passsword set successfully')
-            navigate('/login')
- }else{
-    alert('user with given email does not exists')
- }
-    }
+    // const updatePassword = async () => {
+    //     let data = await fetch('http://127.0.0.1:6969/password-reset'+ id+ token, {
+    //         method: "POST",
+    //         body: JSON.stringify({ email}),
+    //         headers: {
+    //             "Content-type": "application/json",
+    //         }
+    //     })
+    //     let result = await data.json()
+    //     if (result) {
+ 
+    //         alert('passsword set successfully')
+    //         navigate('/login')
+    //     }
+    // }
     const [email, setEmail] = useState('')
 
 
@@ -53,7 +49,7 @@ const Forgot = () => {
     return (
         <Container>
             <form sx={{ width: '50%' }}>
-                <Typography variant='h3' sx={{ padding: '0.5em',mt:"50px" }}>Reset Your Password Here</Typography>
+                <Typography variant='h3' sx={{ padding: '0.5em' }}>Reset Your Password</Typography>
                 <Grid container direction={'column'} >
         
           
@@ -69,9 +65,9 @@ const Forgot = () => {
               
                 </Grid>
             </form >
-            <Link to={'/forget'}>Login</Link>
+            <Link to={'/Forgot'}>Forgot Password</Link>
         </Container>
     )
 }
 
-export default Forgot
+export default Password

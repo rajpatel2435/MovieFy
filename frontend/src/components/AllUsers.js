@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { IconButton, Table, TableBody, TableContainer, TableHead, TableCell, TableRow, Paper, Container, Typography } from '@mui/material'
-
+import { TextField, Button } from '@mui/material';
 
 const AllUsers = () => {
 
     const [users,setUsers]=useState([]);
-    const [show, setShow] = useState()
+    const [show, setShow] = useState();
+    const [isBlock,setBlock]=useState(false)
 
     useEffect(() => {
         getUsers()
@@ -34,6 +35,36 @@ const AllUsers = () => {
         }
 
     }
+
+    const updateUsers = async (id) => {
+
+       
+        let data = await fetch('http://127.0.0.1:6969/update-users/' + id, {
+          method: "POST",
+          body: JSON.stringify({ isBlock }),
+          headers: {
+            "Content-type": "application/json",
+    
+            "Authorization": `bearer ${JSON.parse(localStorage.getItem('token'))}`
+    
+          }
+        })
+        let result = await data.json()
+        if (result.modifiedCount) {
+    
+          alert('Updated')
+          window.location.reload()
+         
+        }
+      }
+
+    const handleToggle = () => {
+        setBlock((e) => !e);
+       
+
+       
+       
+      };
   return (
     <Container>
     {
@@ -45,9 +76,10 @@ const AllUsers = () => {
                 <Table sx={{ minWidth: 650 }}>
                     <TableHead>
                         <TableRow>
+                        <TableCell></TableCell>
                             <TableCell>User's Name</TableCell>
                             <TableCell>Email</TableCell>
-                           
+                            <TableCell></TableCell>
                             <TableCell></TableCell>
                         </TableRow>
                     </TableHead>
@@ -59,17 +91,22 @@ const AllUsers = () => {
                             // console.log("auth Id"+ auth._id);
                             // console.log(userId);
                      
-                      users.map(e => {
+                      users.map((e,index) => {
                          
                     
                                
                             return (
                               
                                 <TableRow key={e._id}>
-                               
+                                    <TableCell>{index + 1}</TableCell>
                                     <TableCell>{e.name}</TableCell>
                                     <TableCell>{e.email}</TableCell>
+                                    <TableCell>
+                                    {e.name==="admin"? true: e.isBlock? <Button variant='contained' onClick={()=>{handleToggle();updateUsers(e._id)}} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>Unblock</Button>:<Button variant='contained' onClick={()=>{handleToggle();updateUsers(e._id)}} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>Block</Button>}
+ 
                                     
+                                    
+                                    </TableCell>
                                 </TableRow>
                         
                             )

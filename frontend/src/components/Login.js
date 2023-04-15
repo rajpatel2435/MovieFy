@@ -41,15 +41,37 @@ const Login = () => {
                     "Authorization": `bearer ${JSON.parse(localStorage.getItem('token'))}`
                 }
             })
-            let final = await data.json()
-            if (final.auth) {
-                localStorage.setItem("user", JSON.stringify(final.user))
-                localStorage.setItem("token", JSON.stringify(final.auth))
-                navigate('/')
-            } else {
+            console.log("dataatadatadatdadtadtadatadatdatadatadtadat"+data)
+            let final = await data.json();
+
+      
+       console.log("FINALLLLLLLLLLL"+final)
+        
+            if(!final.user){
                 setEmailErr(true)
                 setPasswordErr(true)
             }
+         
+            if (final.auth) {
+                let block= JSON.stringify(final.user.isBlock);
+                if(block==="true"){
+                    alert("You are blocekd by admin. please contact admin@admin.com")
+                }else{
+                localStorage.setItem("user", JSON.stringify(final.user))
+                localStorage.setItem("token", JSON.stringify(final.auth))
+                navigate('/')
+                }
+            }else{
+              
+                setEmailErr(true)
+                setPasswordErr(true)
+        
+            }
+         
+        }else{
+            setEmailErr(true)
+            setPasswordErr(true)
+    
         }
     }
 

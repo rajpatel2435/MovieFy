@@ -141,3 +141,34 @@ height: 100vh;
     overflow: hidden;
 }
 
+.comedy{
+    display: flex;
+    flex:1;
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5f0540b5bdb7323e475e7f9f/1611715585654-WQY7BGAVPT1PT5M3HI1M/CCF-Neon-V2-HORIZONTAL-STACK-02.jpg?format=1500w");
+
+
+width: 100%;
+height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1000;
+    opacity: 0.75;
+    margin-left: -12px;
+    overflow: hidden;
+}
+.back {
+    display: flex;
+    
+    align-items: center;
+    position: absolute;
+  padding: '10%';
+    color: black;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0.5;
+  }
+
+  .back:hover{
+    opacity: 1;
+  }

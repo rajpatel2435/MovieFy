@@ -37,8 +37,7 @@ function Home() {
 
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+ 
       style={{marginTop:'70px'}}
      
     >
@@ -68,8 +67,8 @@ function Home() {
 
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+    
+   
       style={{marginTop:'70px'}}
      
     >
