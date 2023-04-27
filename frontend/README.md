@@ -1,5 +1,5 @@
-# E-Cash
-A CRUD application built using MERN stack. Users can signup and play with the products in the MongoDB database using RESTful APIs.(Soon to be upgraded into GraphQL)
+
+A CRUD application built using MERN stack. )
 
 # Technologies Used
 * Node
