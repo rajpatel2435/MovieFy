@@ -45,7 +45,7 @@ const index = () => {
     return (
         <Container>
             <form sx={{ width: '50%' }} action="" method='post' >
-                <Typography variant='h3' sx={{ padding: '0.5em' }}>Login</Typography>
+                <Typography variant='h3' sx={{ padding: '0.5em' }}>Reset</Typography>
                 <Grid container direction={'column'} >
         
           
