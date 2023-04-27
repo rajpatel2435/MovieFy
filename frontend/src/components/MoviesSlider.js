@@ -4,17 +4,20 @@ import { Box } from '@mui/system';
 import { Link } from 'react-router-dom';
 import { TextField, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom'
+import { CardActions } from "@mui/material";
 
-function MoviesSlider({ item: e }) {
+function MoviesSlider({ item: e,props }) {
   const [isHovered, setIsHovered] = useState(false);
   const [isFavourite, setFavourite] = useState(false)
   const navigate = useNavigate()
   const trailer = "https://youtu.be/BzUv298D3uk?list=RDBzUv298D3uk"
   
-
+  let auth = JSON.parse(localStorage.getItem('user'))
+  console.log("aurththththththtttttttttttttttttttttttttttt"+auth)
+console.log("authhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"+auth)
 
   let userId = JSON.parse(localStorage.getItem('user'))._id
-  console.log(userId);
+
   const updateProduct = async (id) => {
 
     let favUserId = JSON.parse(localStorage.getItem('user'))._id
@@ -29,7 +32,7 @@ function MoviesSlider({ item: e }) {
       }
     })
     let result = await data.json()
-    console.log("result"+JSON.stringify(result))
+  
     if (result.modifiedCount) {
 
       alert('Updated')
@@ -38,13 +41,40 @@ function MoviesSlider({ item: e }) {
     }
   }
 
+ 
 
-  const handleToggle = () => {
-    setFavourite(!isFavourite);
 
-    updateProduct(e._id);
-   
-  };
+
+
+
+  const addFav = async (bid) => {
+
+      let id = userId;
+      console.log("iddddddddddddididiidiididdii"+id)
+      let data = await fetch(`http://127.0.0.1:6969/add-fav/${id}`, {
+          method: 'post',
+          body: JSON.stringify({ favorites: [bid] }),
+          headers: {
+            "Content-type": "application/json",
+
+            "Authorization": `bearer ${JSON.parse(localStorage.getItem('token'))}`
+    
+          }
+      })
+      let userInfo = await data.json()
+      console.log("useeeeeeeeerrrrrrrrrrrrrIIIIIInnnnnnnfoooooo"+userInfo)
+      if (userInfo) {
+          if (userInfo.modifiedCount) {
+              navigate('/favorites')
+          } else {
+              alert('Already in Favorites!')
+          }
+      } else {
+          alert('Something went wrong, Try again later!')
+      }
+
+  }
+
 
   return (
     <>
@@ -118,8 +148,11 @@ function MoviesSlider({ item: e }) {
                       
                     </div>
                     {/* <Button variant='contained' onClick={handleToggle} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>ADD</Button> */}
-                    {e.isFavourite? <Button variant='contained' onClick={handleToggle} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>Remove</Button>:<Button variant='contained' onClick={handleToggle} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>ADD</Button>}
-
+                    <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button target='_blank' onClick={() => {
+                      console.log("propsospsospsospsp"+e._id)
+                      addFav(e._id)}} size='large' variant="contained" color='error' >Watch Later</Button>
+                </CardActions>
                   </div>
                 </>
               )}
@@ -197,20 +230,13 @@ function MoviesSlider({ item: e }) {
                         <div className="desc">
                           {e.description}
                         </div>
-
+                        <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
+                    <Button target='_blank' onClick={() => {
+                  
+                      addFav(e._id)}} size='large' variant="contained" color='error' >Watch Later</Button>
+                </CardActions>
                       </div>
-                      {isFavourite === false && <Button variant='contained' onClick={handleToggle} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>ADD</Button>
-                    }{isFavourite === true && <Button variant='contained' onClick={handleToggle} color='secondary' size='large' sx={{ float: 'right', margin: '2em 0', marginRight: '5em' }}>Remove</Button>}
-       <input
-            name="userId"
-  
-              type={"hidden"}
-              value={userId}
    
-     
-
-           
-            />
 
                     </div>
                   </>

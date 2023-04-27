@@ -33,6 +33,10 @@ const navitems = [
     {
       text:'Search',
       path:'/searchMovies'
+    },
+    {
+      text:'Favourite',
+      path:'/favorites'
     }
 ]
 

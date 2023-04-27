@@ -47,7 +47,7 @@ const FileUpload = () => {
 
             }
         })
-        console.log("data new"+ data.json())
+   
         let final = await data.json()
         if (final.fieldName) {
             navigate('/')
@@ -58,7 +58,7 @@ const FileUpload = () => {
 }
 
 let userId = JSON.parse(localStorage.getItem('user'))._id
-console.log(userId);
+
   return (
     <Container style={{marginTop:'100px'}}>
       <form action="http://127.0.0.1:6969/upload/" method="post"  enctype="multipart/form-data" sx={{ width: "50%" }}>
@@ -101,7 +101,7 @@ console.log(userId);
           label="Genre"
           onChange={(e) => {
             setGenre(e.target.value);
-            console.log("gennnnnn"+e.target.value)
+        
             if (e.target.value === "" || e.target.value === null) {
               setGenreErr(true);
             } else {

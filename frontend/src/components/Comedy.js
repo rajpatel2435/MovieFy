@@ -48,8 +48,7 @@ const Comedy = () => {
             setShow(true)
 
             setProducts(result)
-            console.log("result"+result)
-            console.log(result[0].userId);
+   
 
         }
 
@@ -112,7 +111,7 @@ const Comedy = () => {
                 // console.log(userId);
 
                 products.map((e) => {
-                    if(e.genre=="ssssss")
+                    if(e.genre=="Comedy")
                   return (
                     <>
                

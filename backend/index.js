@@ -40,8 +40,7 @@ app.use(cors());
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-   console.log(req.body)
-   console.log(file)
+
     if(file.mimetype==="image/jpeg" || file.mimetype==='image/png' || file.mimetype==='image/jpg'){
       cb(null, '../frontend/src/Images')
     }else if(file.mimetype==='video/mp4'){
@@ -74,10 +73,7 @@ app.post("/upload", uploadStorage.single("file"), async (req, res,err) => {
            
           });
 
-  //             console.log("name JSON of"+  JSON.parse(JSON.stringify(req.body)));
 
-  //  console.log("new file"+ newFile);
-         
 await newFile.save();
 res.redirect('http://localhost:3000/showFiles');
 
@@ -119,7 +115,7 @@ try{
   //   res.redirect('/');
 }catch(error){
   res.status(500).send(error.message);
-  console.log(error.message);
+  // console.log(error.message);
 
 
 }
@@ -206,25 +202,25 @@ try {
 
     const schema = Joi.object({ email: Joi.string().email().required() });
         const { error } = schema.validate(req.body);
-        console.log("email"+req.body.email)
+        // console.log("email"+req.body.email)
         if (error){return res.status(400).send(error.details[0].message);}
         const user = await userModel.findOne({ email: req.body.email });
         if (!user) {
-          console.log("user does'nt exists")
+          // console.log("user does'nt exists")
           res.send({ result: "No user found" })
   
       }else{
         let token = await TokenModel.findOne({ userId: user._id });
-        console.log("Token")
-        console.log(user._id)
-console.log(crypto.randomBytes(32))
+        // console.log("Token")
+        // console.log(user._id)
+// console.log(crypto.randomBytes(32))
         if (!token) {
             token = new TokenModel({
                 userId: user._id,
                 token: crypto.randomBytes(32).toString("hex"),
             });
             await token.save()
-            console.log("Token"+token)
+            // console.log("Token"+token)
         }
 
         const link = `http://localhost:6969/password-reset/${user._id}/${token.token}`;
@@ -300,7 +296,7 @@ app.post("/password-reset/:userId/:token", async (req, res) => {
         const user = await userModel.findById(req.params.userId);
  
         if (!user) return res.status(400).send("invalid link or expired");
-console.log("USer"+user)
+// console.log("USer"+user)
         const token = await TokenModel.findOne({
             userId: user._id,
             token: req.params.token,
@@ -311,7 +307,7 @@ console.log("USer"+user)
 
   
     const encryptedPassword = await bcrypt.hash(password, 10);
-     console.log("encrypted"+encryptedPassword)
+    //  console.log("encrypted"+encryptedPassword)
         await userModel.updateOne(
           {
             _id:user._id,
@@ -345,7 +341,7 @@ app.get('/users', async (req, res) => {
   
   let data= await userModel.find();
 
-console.log("data"+data);
+// console.log("data"+data);
   if (data.length > 0) {
       res.send(data);
      
@@ -358,7 +354,7 @@ res.send({ result: "No Users!" })
 })
 app.post('/update-users/:id', async (req, res) => {
   let data = await userModel.updateOne({ _id: req.params.id }, { $set: {isBlock:req.body.isBlock}} )
-  console.log("update----------users"+data)
+  // console.log("update----------users"+data)
   res.send(data)
 })
 
@@ -370,12 +366,12 @@ app.post('/update-product/:id', async (req, res) => {
 app.post('/update-self/:id', async (req, res) => {
   // let data = await fileModel.updateOne({ _id: req.params.id }, { $set: req.body })
   const {password}=req.body.password;
-console.log(req.body.password)
+// console.log(req.body.password)
   const salt= await bcrypt.genSalt(10);
-  console.log("salt"+salt)
+  // console.log("salt"+salt)
   const encryptedPassword=await bcrypt.hash(req.body.password,salt);
 
-     console.log("encrypted"+encryptedPassword)
+    //  console.log("encrypted"+encryptedPassword)
         let data= await userModel.updateOne(
           {
             _id:req.params.id,
@@ -394,10 +390,10 @@ console.log(req.body.password)
 })
 
 app.post('/favourite-product/:id', async (req, res) => {
-  console.log("rrrrrrrrrrreq"+JSON.stringify(req.body))
+
   let data1 = await fileModel.updateOne({ _id: req.params.id }, { $set: {isFavourite:req.body.isFavourite}} )
   let f1=await fileModel.find({favUserId: {$in: { favUserId:req.body.userId}}}) 
-  console.log("FFFFFFFFFFFF!!!!!!!!!!!"+f1)
+
 if(data1){
   if(!f1){
 
@@ -420,7 +416,7 @@ if(data1){
       }
     );
 
-  console.log("ddddddddddddddddddtaaaaaaaaaaaaaaaaaaaaaaaa1"+data)
+
   res.send(data)
     
   }
@@ -441,7 +437,7 @@ if(data1){
       
       }
     );
-    console.log("dddddddd222222"+data)
+
     res.send(data)
    
   }
@@ -470,6 +466,27 @@ app.post('/search-id/:id',async (req, res) => {
 
 })
 
+
+
+// 
+// 
+
+app.post('/add-fav/:id', async (req, res) => {
+  let data = await userModel.updateOne({ _id: req.params.id }, { $addToSet: req.body })
+  res.send(data)
+})
+
+
+app.post('/update-fav/:id', async (req, res) => {
+  let data = await userModel.updateOne({ _id: req.params.id }, { $set: req.body })
+  res.send(data)
+})
+// 
+
+app.get("/user-movies/:id", async (req, res) => {
+  let data = await userModel.findOne({ _id: req.params.id });
+  res.send(data.favorites    );
+});
 app.post('/search/:key', async (req, res) => {
 let data = await fileModel.find({
   "$or": [

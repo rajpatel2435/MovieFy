@@ -6,7 +6,7 @@ import Home from './components/Home';
 
 import Login from './components/Login';
 import Signup from './components/Signup';
-import History from './components/History';
+
 import FileUpload from './components/FileUpload';
 import Forgot from './components/Forgot';
 import AllUsers from './components/AllUsers';
@@ -16,11 +16,12 @@ import CPass from './components/CPass';
 import Video from './components/Video';
 import ShowMovies from './components/ShowMovies';
 import MoviesSlider from './components/MoviesSlider';
-import FavouriteList from './components/FavouriteList';
-import ShowFav from './components/ShowFav';
+
+
 import Comedy from './components/Comedy';
 import SearchMov from './components/SearchMov';
 import UserSelfInfo from './components/UserSelfInfo';
+import Favorites from './components/Favorites';
 
 export default function App() {
     return (
@@ -37,7 +38,7 @@ export default function App() {
 <Route path='/' element={<Home/>}/>
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/History' element={<History/>} />
+     
             <Route path='/FileUpload' element={<FileUpload/>} />
             <Route path='/Forgot' element={<Forgot/>}/>
             <Route path='/users' element={<AllUsers/>}/>
@@ -45,10 +46,12 @@ export default function App() {
             <Route path='/updateMovies' element={<UpdateMov/>}/>
             <Route path='/CPass' element={<CPass/>}/>
             <Route path='/video' element={<Video />}/>
+            <Route path='/favorites' element={<Favorites />}/>
+            
             <Route path='/showMovies' element={<ShowMovies />}/>
             <Route path='/sliderMovie' element={<MoviesSlider />}/>
-            <Route path='/favourite' element={<FavouriteList />}/>
-            <Route path='/favouriteMovies' element={<ShowFav/>} />
+    
+    
             <Route path='/comedy' element={<Comedy/>} />
             <Route path='/searchMovies' element={<SearchMov/>} />
             <Route path='/userSelfInfo' element={<UserSelfInfo/>} />

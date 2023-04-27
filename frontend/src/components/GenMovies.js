@@ -29,7 +29,7 @@ function GenMovies({ item: e }) {
       }
     })
     let result = await data.json()
-    console.log("result"+JSON.stringify(result))
+
     if (result.modifiedCount) {
 
       alert('Updated')

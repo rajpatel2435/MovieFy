@@ -86,11 +86,7 @@ const AllUsers = () => {
                     <TableBody>
                         {
                               
-                        //    console.log({(JSON.parse(auth).name)});
-                            
-                            // console.log("auth Id"+ auth._id);
-                            // console.log(userId);
-                     
+          
                       users.map((e,index) => {
                          
                     

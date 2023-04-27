@@ -13,7 +13,7 @@ export default function Movie() {
       <Link to="/">
         <div className="back" style={{fontSize:'20px'}} >
   
-          <img src={require("../Images/back.png")}  style={{marginLeft:'10px',height:'40px',marginTop:'5px'}}/>
+          <img src={require("../Images/back.png")} alt="..........dcn" style={{marginLeft:'10px',height:'40px',marginTop:'5px'}}/>
           <span>{movie}</span>
    {/* {console.log(location.state.favourtie)} */}
         </div>

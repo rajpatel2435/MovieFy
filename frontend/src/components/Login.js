@@ -41,11 +41,10 @@ const Login = () => {
                     "Authorization": `bearer ${JSON.parse(localStorage.getItem('token'))}`
                 }
             })
-            console.log("dataatadatadatdadtadtadatadatdatadatadtadat"+data)
+         
             let final = await data.json();
 
-      
-       console.log("FINALLLLLLLLLLL"+final)
+
         
             if(!final.user){
                 setEmailErr(true)

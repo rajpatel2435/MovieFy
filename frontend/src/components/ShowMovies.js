@@ -1,7 +1,7 @@
-import { green } from "@mui/material/colors";
+
 import React from "react";
 import "../index.css";
-import { Link } from "react-router-dom";
+
 import SwiperCore, {
   Navigation,
   Pagination,
@@ -11,28 +11,16 @@ import SwiperCore, {
   Autoplay,
 } from "swiper";
 import {
-  Box,
-  IconButton,
-  Table,
-  TableBody,
-  TableContainer,
-  TableHead,
-  TableCell,
-  TableRow,
-  Paper,
+  
   Container,
   Typography,
 } from "@mui/material";
 
-import { Grid } from "@mui/material";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
+
 
 // Import Swiper styles
 import "swiper/css";
@@ -43,7 +31,7 @@ import MoviesSlider from "./MoviesSlider";
 
 function ShowMovies() {
   SwiperCore.use([Autoplay]);
-
+ 
   const [products, setProducts] = useState([]);
   const [show, setShow] = useState();
  
@@ -68,8 +56,7 @@ function ShowMovies() {
       setShow(true);
 
       setProducts(result);
-      console.log("result" + result);
-      console.log(result[0].userId);
+
     }
   };
 
@@ -83,7 +70,7 @@ function ShowMovies() {
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log("slide change")}
+
         style={{ marginTop: "70px",color:"green" }}
         
      
@@ -117,8 +104,7 @@ function ShowMovies() {
           }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("slide change")}
+       
           style={{ marginTop: "70px" }}
         >
           <SwiperSlide>
@@ -149,10 +135,7 @@ function ShowMovies() {
           {show ? (
             <>
               {
-                //    console.log({(JSON.parse(auth).name)});
-
-                // console.log("auth Id"+ auth._id);
-                // console.log(userId);
+          
 
                 products.map((e) => {
                   return (

@@ -123,7 +123,7 @@ const updateProduct = async (id) => {
             <Box>
                 
              
-                <Typography variant={'h5'} sx={{ marginTop: '4em' }}>Search Results ({products.length} Products Find)</Typography>
+                <Typography variant={'h5'} sx={{ marginTop: '4em' }}>Search Results ({products.length} Movies Find)</Typography>
                 <TableContainer component={Paper} sx={{ marginTop: '2em' }}>
                     <Table sx={{ minWidth: 650 }}>
                         <TableHead>

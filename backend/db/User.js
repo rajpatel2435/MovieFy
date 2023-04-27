@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
     isBlock: {
         type: Boolean,
         default: false
-    }
+    },
+    favorites: [String]
 })
 
 const userModel = mongoose.model('users', userSchema, 'users')
