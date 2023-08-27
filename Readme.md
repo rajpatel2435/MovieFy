@@ -48,5 +48,5 @@ https://github.com/rajpatel2435/MovieFy/assets/81604941/ca4dd6cf-2217-4d44-b7a5-
 
 
 c) Section for Admin where admin can upload movie, edit movie, see all users (block/unblock)
-https://github.com/rajpatel2435/MovieFy/assets/81604941/65f23f55-80f9-46a1-aa11-1f035267f922
+https://github.com/rajpatel2435/MovieFy/assets/81604941/6b6ef0b1-a31a-42e9-8e5f-0d609f7240dc
 
