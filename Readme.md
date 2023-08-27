@@ -38,17 +38,16 @@ Enjoy your movie journey with Moviefy!
 
 *[rajpatel2435] - [Your GitHub Profile](https://github.com/rajpatel2435/MovieFy)*
 
-A) Register new user and login
+**A) Register new user and login**
 
 https://github.com/rajpatel2435/MovieFy/assets/81604941/881847ae-e1de-44e4-b2bd-070a4caebe75
 
-
-B) All the features for the user
+**B) All the features for the user**
 
 https://github.com/rajpatel2435/MovieFy/assets/81604941/ca4dd6cf-2217-4d44-b7a5-fd6702795e7d
 
 
-c) Section for Admin where admin can upload movie, edit movie, see all users (block/unblock)
+**c) Section for Admin where admin can upload movie, edit movie, see all users (block/unblock)**
 
 https://github.com/rajpatel2435/MovieFy/assets/81604941/6b6ef0b1-a31a-42e9-8e5f-0d609f7240dc
 
